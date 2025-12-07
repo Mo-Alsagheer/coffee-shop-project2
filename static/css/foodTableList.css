@@ -1,0 +1,46 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+}
+
+main div {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.addFoodButton {
+    background-color: #4b2e2a;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table th {
+    background-color: #4b2e2a;
+    color: white;
+}
+
+table, th, td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.foodName {
+    font-weight: bold;
+}
+
+table a {
+    color: #4b2e2a;
+}

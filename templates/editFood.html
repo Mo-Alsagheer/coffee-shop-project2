@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Add Food Item</title>
+        <link rel="stylesheet" href="/static/css/style.css" />
+    </head>
+    <body>
+        <header class="site-header">
+            <div class="container">
+                <h1 class="logo">The Coffee House</h1>
+                <nav>
+                    <a href="/">Home</a>
+                    <a href="/login">Login</a>
+                </nav>
+            </div>
+        </header>
+        <section class="hero">
+            <div class="container hero-inner">
+                <div class="hero-text">
+                    <h2>Edit Food Details</h2>
+                    <p>Update the details of the selected food item below.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container profile-card">
+            <form class="card add-food-form" action="/admin/editFood/{{food.id}}" method="POST">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">Food Name</label>
+                        <input type="text" id="name" name="name" value="{{food.name}}" required 
+                               placeholder="e.g., Chocolate Croissant">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="number" id="price" name="price" step="0.01" value="{{food.price}}" required 
+                               placeholder="e.g., 4.99">
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" required 
+                                 placeholder="Describe your menu item...">{{food.description}}</textarea>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="image">Image URL</label>
+                        <input type="text" id="image" name="image_url" value="{{food.image_url}}" required 
+                               placeholder="Enter the image URL">
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn">Save Changes</button>
+                        <a href="/" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <footer class="site-footer">
+            <div class="container">&copy; {{ 2025 }} The Coffee House</div>
+        </footer>
+    </body>
+</html>

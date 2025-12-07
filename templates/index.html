@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee House</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1 class="logo">The Coffee House</h1>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-inner">
+            <div class="hero-text">
+                <h2>Fresh coffee. Fresh ideas.</h2>
+                <p>Explore our selection of pastries and drinks — handcrafted daily.</p>
+            </div>
+            <div class="hero-image">
+                <img src="{{ url_for('static', filename='images/Coffee-Shop.png') }}" alt="Coffee Shop">
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery container">
+        <h3>Our Menu Highlights</h3>
+        <div class="grid">
+            <img src="{{ url_for('static', filename='images/Coffee-and-Pastries.png') }}" alt="Coffee and Pastries">
+            <img src="{{ url_for('static', filename='images/Cup-of-Hot-Chocolate.png') }}" alt="Hot Chocolate">
+            <img src="{{ url_for('static', filename='images/Cookies.png') }}" alt="Cookies">
+            <img src="{{ url_for('static', filename='images/Strawberry-Tarts.png') }}" alt="Strawberry Tarts">
+        </div>
+    </section>
+
+    <section class="users container">
+        <h3>Check Our Menu</h3>
+        <div class="food-grid">
+            {% for food in foodMenu %}
+            <div class="food-card">
+                <img src="{{ food.image_url }}" alt="{{ food.name }}">
+                <div class="food-body">
+                    <h4>{{ food.name }}</h4>
+                    <div class="price">${{ '%.2f' % food.price }}</div>
+                    <p class="desc">{{ food.description }}</p>
+                </div>
+                <a class="btn" href="/foodDetails/{{ food.id }}">Show Details</a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">&copy; {{ 2025 }} The Coffee House</div>
+    </footer>
+</body>
+</html>

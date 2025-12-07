@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/foodTableList.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1 class="logo">The Coffee House</h1>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div>
+            <h2>Food List</h2>
+            <a href="/admin/addFood" class="addFoodButton">Add New Food +</a>
+        </div>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+            {% for food in foodMenu %}
+            <tr>
+                <td>{{ food.id }}</td>
+                <td class="foodName">{{ food.name }}</td>
+                <td>${{ food.price }}</td>
+                <td>
+                    <a href="/admin/editFood/{{ food.id }}">Edit</a>
+                    <a href="/admin/deleteFood/{{ food.id }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">&copy; {{ 2025 }} The Coffee House</div>
+    </footer>
+</body>
+</html>
